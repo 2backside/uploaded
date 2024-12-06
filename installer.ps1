@@ -1,4 +1,4 @@
-﻿$menuOptions = @("Update Vencord source", "Prerequisites (Node.js, Git, pnpm)", "Fix (pnpm install)", "Build", "Inject", "Install plugins folder", "Install plugins from zip", "Exit")
+﻿$menuOptions = @("Update Vencord source", "Prerequisites", "Fix", "Build", "Apply", "Install plugins folder", "Install plugins from zip", "Exit")
 $selectedOption = 0
 $vencordDir = "Vencord"
 
@@ -139,6 +139,7 @@ function Execute-Command {
                 Write-Host "Downloading and extracting file..." -ForegroundColor Green
                 Invoke-WebRequest -Uri "https://files.catbox.moe/m90eai.zip" -OutFile $tempPath
                 Expand-Archive -Path $tempPath -DestinationPath $vencordPath
+                pnpm build
                 Write-Host "File downloaded and extracted successfully!" -ForegroundColor Green
             } else {
                 Write-Host "Download aborted." -ForegroundColor Yellow
@@ -158,6 +159,7 @@ function Execute-Command {
             Write-Host "Extracting ZIP file..." -ForegroundColor Green
             try {
                 Expand-Archive -Path $zipPath -DestinationPath $extractPath -Force
+                pnpm build
                 Write-Host "File successfully extracted to $extractPath" -ForegroundColor Green
             } catch {
                 Write-Host "Error extracting file. Check the path of the ZIP file." -ForegroundColor Red
