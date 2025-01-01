@@ -26,5 +26,3 @@ if learned then
         end
     end
 end
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/2backside/vencordgui/refs/heads/main/skills.lua"))
