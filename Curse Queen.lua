@@ -13,3 +13,17 @@ for numero, valor in pairs(TargetInnate) do
     end
 end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/2backside/vencordgui/refs/heads/main/learn.lua"))()
+local player = game:GetService("Players").LocalPlayer
+local masteries = player.ReplicatedData and player.ReplicatedData:FindFirstChild("masteries")
+
+if masteries then
+    local infinity = masteries:FindFirstChild("Curse Queen")
+    if infinity and infinity:FindFirstChild("level") then
+        infinity.level.Value = 500
+    else
+        warn("The path 'ReplicatedData.masteries.Infinity.level' was not found.")
+    end
+else
+    warn("The path 'ReplicatedData.masteries' was not found.")
+end
+
