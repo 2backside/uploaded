@@ -2,7 +2,7 @@ local player = game:GetService("Players").LocalPlayer
 local replicatedData = player:WaitForChild("ReplicatedData")
 local innates = replicatedData:WaitForChild("innates")
 local TargetInnate = {
-    [2] = "Star Rage",
+    [1] = "Star Rage",
 }
 for numero, valor in pairs(TargetInnate) do
     local valorObj = innates:FindFirstChild(tostring(numero))
